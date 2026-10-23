@@ -11,7 +11,7 @@
 ## Szybki start
 
 ```bash
-git clone https://github.com/LostInTheLogs/PK-WDPAI.git
+git clone https://github.com/vodfsh/PK-WDPAI.git
 cd PD-WDPAI
 docker compose up --build -d
 docker compose exec php composer install
