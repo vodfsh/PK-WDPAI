@@ -1,0 +1,5 @@
+{
+  "$schema": "https://gist.githubusercontent.com/vodfsh/488cf41ba26a187b4cd427b06f577e46/raw/60823f30f2ea39f443c970130cb98e53840512b4/phpactor.schema.json",
+  "language_server_phpstan.enabled": true,
+  "language_server_php_cs_fixer.enabled": true
+}
