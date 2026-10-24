@@ -6,5 +6,5 @@
 
 <h1>
   Profile of user
-  <?php echo $profileUser; ?>
+  <?= $profileUser; ?>
 </h1>

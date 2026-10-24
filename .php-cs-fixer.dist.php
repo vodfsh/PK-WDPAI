@@ -6,18 +6,21 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 return (new Config())
-  ->setRiskyAllowed(false)
-  ->setRules([
-    '@auto' => true,
-    '@PhpCsFixer' => true,
-  ])
+    ->setRiskyAllowed(false)
+    ->setRules([
+        '@auto' => true,
+        '@PhpCsFixer' => true,
+        'echo_tag_syntax' => [
+            'format' => 'short',
+        ],
+    ])
     // 💡 by default, Fixer looks for `*.php` files excluding `./vendor/` - here, you can groom this config
-  ->setFinder(
-    (new Finder())
-          // 💡 root folder to check
-      ->in([
-        __DIR__.'/public',
-        __DIR__.'/src',
-      ])
-  )
+    ->setFinder(
+        (new Finder())
+            // 💡 root folder to check
+            ->in([
+                __DIR__.'/public',
+                __DIR__.'/src',
+            ])
+    )
 ;

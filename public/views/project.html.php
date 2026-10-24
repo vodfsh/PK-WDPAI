@@ -3,5 +3,5 @@
 ?>
 <h1>
   Id przekazane przez URL, do kontrolera i na widok:
-  <?php echo $projectId; ?>
+  <?= $projectId; ?>
 </h1>

@@ -10,7 +10,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo htmlspecialchars($pageTitle ?? 'Play it by Eye'); ?></title>
+    <title><?= htmlspecialchars($pageTitle ?? 'Play it by Eye'); ?></title>
 
     <!-- FOUC script -->
     <script>
@@ -30,6 +30,6 @@
       <nav>TODO</nav>
     </header>
 
-    <main><?php echo $content ?? ''; ?></main>
+    <main><?= $content ?? ''; ?></main>
   </body>
 </html>
