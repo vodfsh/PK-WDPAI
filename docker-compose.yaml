@@ -54,6 +54,20 @@ services:
     networks:
       - pg-network
 
+  browser-sync:
+    image: node:20-alpine
+    command: npx browser-sync start --proxy "server:80" --files "public/**/*, src/**/*, views/**/*"
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - pg-network
+    profiles:
+      - dev
+
 networks:
   pg-network:
 

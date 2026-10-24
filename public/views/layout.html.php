@@ -1,5 +1,8 @@
 <?php
-/**
+
+use function App\svg_icon;
+
+/*
  * @var ?string $content
  * @var ?string $pageTitle
  */
@@ -27,9 +30,28 @@
   </head>
   <body>
     <header>
-      <nav>TODO</nav>
+      <nav>
+        <a href="/" class="navlink">
+          <?= svg_icon('logo'); ?>
+          Play it by Eye
+        </a>
+        <a href="/leaderboard" class="navlink">
+          <?= svg_icon('manual'); ?>
+          Leaderboard
+        </a>
+        <a href="/settings" class="navlink">
+          <?= svg_icon('settings'); ?>
+          Settings
+        </a>
+        <span class="grow"></span>
+        <a href="/profile" class="navlink">
+          <?= svg_icon('settings'); ?>
+          Account
+        </a>
+      </nav>
     </header>
 
     <main><?= $content ?? ''; ?></main>
+    <footer>footer</footer>
   </body>
 </html>

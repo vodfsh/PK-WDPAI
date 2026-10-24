@@ -10,12 +10,16 @@
   --danger: hsl(359 55% 45%);
   --black-keys: hsl(0 0% 20%);
   --tertiary: hsl(23 85% 48%);
+
+  --font: Excallifont;
+
+  --btn-radius: 4px;
 }
 
 :root[data-theme="dark"] {
   --background: hsl(0 0% 17%);
   --foreground: hsl(0 0% 87%);
-  --card-1-background: hsl(0 0% 20%);
+  --card-1-background: hsl(0 0% 30%);
   --card-1-foreground: hsl(0 0% 98%);
   --outline: hsl(245 75% 96% / 0.14);
   --primary: hsl(189 44% 58%);
@@ -32,7 +36,71 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 10px;
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 2rem;
+}
+
+@font-face {
+  font-family: "Excallifont";
+  src: url("/assets/fonts/Excalifont-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font);
+}
+
+/* UTILITIES */
+.grow {
+  flex-grow: 1;
+}
+
+/* NAV */
+
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+a.navlink,
+a.navlink:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navlink {
+  display: flex;
+  border-radius: var(--btn-radius);
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+  width: max-content;
+  font-size: 1.2rem;
+}
+
+.navlink:hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.navlink svg {
+  width: 30px;
+}
+
+/* HOME */
+
+.main-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }

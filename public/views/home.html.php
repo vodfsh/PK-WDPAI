@@ -1,1 +1,5 @@
-<h1>Strona główna</h1>
+<section class="main-app">
+  <span>a</span>
+  <span>b</span>
+  <span>c</span>
+</section>
