@@ -1,0 +1,24 @@
+{
+  "name": "pk-wdpai",
+  "version": "1.0.0",
+  "description": "| Warstwa        | Technologie    | | -------------- | -------------- | | Backend        | PHP 8.3        | | Serwer HTTP    | Nginx          | | Konteneryzacja | Docker Compose |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LostInTheLogs/PK-WDPAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LostInTheLogs/PK-WDPAI/issues"
+  },
+  "homepage": "https://github.com/LostInTheLogs/PK-WDPAI#readme",
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
+}
