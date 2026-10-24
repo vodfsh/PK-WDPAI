@@ -20,6 +20,50 @@ final class Routing
         $this->add('POST', $path, $controller, $action);
     }
 
+    public function dispatch(string $method, string $uri): bool
+    {
+        $path = parse_url($uri, PHP_URL_PATH) ?: '/';
+
+        // Normalize incoming path: trim trailing slash unless it's just the root '/'
+        if ('/' !== $path) {
+            $path = rtrim($path, '/');
+        }
+
+        foreach ($this->routes as $route) {
+            if ($route['method'] !== $method) {
+                continue;
+            }
+
+            if (!preg_match($route['pattern'], $path, $matches)) {
+                continue;
+            }
+
+            $parameters = array_filter(
+                $matches,
+                static fn (int|string $key): bool => is_string($key),
+                ARRAY_FILTER_USE_KEY,
+            );
+
+            $parameters = array_map(
+                static fn (string $value): int|string => ctype_digit($value) ? (int) $value : $value,
+                $parameters,
+            );
+
+            $controllerClass = $route['controller'];
+            $controller = new $controllerClass();
+
+            if (!$controller instanceof AppController) {
+                throw new \RuntimeException('Invalid controller');
+            }
+
+            $controller->{$route['action']}(...$parameters);
+
+            return true;
+        }
+
+        return false;
+    }
+
     private function add(
         string $method,
         string $path,
@@ -41,6 +85,11 @@ final class Routing
     */
     private function createPattern(string $path): string
     {
+        // Normalize registered path: trim trailing slash unless it's just '/'
+        if ('/' !== $path) {
+            $path = rtrim($path, '/');
+        }
+
         $parts = explode('/', $path);
 
         foreach ($parts as &$part) {
@@ -56,7 +105,8 @@ final class Routing
                     $regex = '[^/]+';
                 }
 
-                $part = '(?P<' . $parameterName . '>' . $regex . ')';
+                $part = '(?P<'.$parameterName.'>'.$regex.')';
+
                 continue;
             }
 
@@ -64,46 +114,6 @@ final class Routing
         }
         unset($part);
 
-        return '~^' . implode('/', $parts) . '$~';
-    }
-
-    public function dispatch(string $method, string $uri): bool
-    {
-        $path = parse_url($uri, PHP_URL_PATH) ?: '/';
-
-        foreach ($this->routes as $route) {
-            if ($route['method'] !== $method) {
-                continue;
-            }
-
-            if (!preg_match($route['pattern'], $path, $matches)) {
-                continue;
-            }
-
-            $parameters = array_filter(
-                $matches,
-                static fn (int|string $key): bool => is_string($key),
-                ARRAY_FILTER_USE_KEY,
-            );
-
-            $parameters = array_map(
-                static fn (string $value): int|string =>
-                    ctype_digit($value) ? (int) $value : $value,
-                $parameters,
-            );
-
-            $controllerClass = $route['controller'];
-            $controller = new $controllerClass();
-
-            if (!$controller instanceof AppController) {
-                throw new \RuntimeException('Invalid controller');
-            }
-
-            $controller->{$route['action']}(...$parameters);
-
-            return true;
-        }
-
-        return false;
+        return '~^'.implode('/', $parts).'$~';
     }
 }
