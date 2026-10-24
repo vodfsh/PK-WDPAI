@@ -1,8 +1,10 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.3.36-fpm-alpine
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
+
+RUN apk update && apk upgrade --no-cache
 
 RUN apk add --no-cache \
         zlib \
