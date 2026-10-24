@@ -1,4 +1,6 @@
 {
+  "name": "vodfsh/play-it-by-eye",
+  "description": "App",
   "autoload": {
     "psr-4": {
       "App\\Controller\\": "src/controllers/",

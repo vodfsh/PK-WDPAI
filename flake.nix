@@ -18,6 +18,7 @@
         default = pkgs.mkShell {
           buildInputs = [
             pkgs.php
+            pkgs.phpPackages.composer
           ];
         };
       }
