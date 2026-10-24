@@ -1,9 +1,16 @@
+<?php
+/**
+ * @var ?string $content
+ * @var ?string $pageTitle
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'My App' ?></title>
+    <title><?php echo htmlspecialchars($pageTitle ?? 'Play it by Eye'); ?></title>
 
     <!-- FOUC script -->
     <script>
@@ -24,8 +31,7 @@
     </header>
 
     <main>
-        <!-- The specific page content is injected here -->
-        <?= $content ?? '' ?>
+        <?php echo $content ?? ''; ?>
     </main>
 </body>
 </html>

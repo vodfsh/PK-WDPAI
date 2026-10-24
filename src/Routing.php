@@ -8,6 +8,7 @@ use App\Controller\AppController;
 
 final class Routing
 {
+    /** @var array<int, array{method: string, pattern: string, controller: string, action: string}> */
     private array $routes = [];
 
     public function get(string $path, string $controller, string $action): void

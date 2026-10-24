@@ -1,13 +1,7 @@
-<!doctype html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle) ?></title>
-</head>
-<body>
-    <main>
-        <h1>Profile of user <?= $profileUser ?></h1>
-    </main>
-</body>
-</html>
+<?php
+/**
+ * @var string $profileUser
+ */
+?>
+
+  <h1>Profile of user <?php echo $profileUser; ?></h1>

@@ -7,4 +7,4 @@ node_modules/
 docker/data/
 composer.lock
 .direnv
-*.cache
+/.php-cs-fixer.cache
