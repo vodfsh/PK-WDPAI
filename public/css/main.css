@@ -1,0 +1,27 @@
+:root {
+  --background: hsl(0 0% 98%);
+  --foreground: hsl(0 0% 15%);
+  --card-1-background: hsl(0 0% 100%);
+  --card-1-foreground: hsl(0 0% 10%);
+  --outline: hsl(245 25% 20% / 0.12);
+  --primary: hsl(189 52% 38%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(184 40% 32%);
+  --danger: hsl(359 55% 45%);
+  --black-keys: hsl(0 0% 20%);
+  --tertiary: hsl(23 85% 48%);
+}
+
+:root[data-theme="dark"] {
+  --background: hsl(0 0% 17%);
+  --foreground: hsl(0 0% 87%);
+  --card-1-background: hsl(0 0% 20%);
+  --card-1-foreground: hsl(0 0% 98%);
+  --outline: hsl(245 75% 96% / 0.14);
+  --primary: hsl(189 44% 58%);
+  --primary-foreground: hsl(187 100% 12%);
+  --secondary: hsl(184 36% 45%);
+  --danger: hsl(359 48% 60%);
+  --black-keys: hsl(0 0% 13%);
+  --tertiary: hsl(23 100% 66%);
+}
