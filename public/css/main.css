@@ -36,6 +36,15 @@
   box-sizing: border-box;
 }
 
+:root,
+body,
+button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 body {
   padding: 10px;
   margin: 0;
@@ -64,11 +73,37 @@ body {
   flex-grow: 1;
 }
 
+:root[data-theme="dark"] .dark-only,
+:root:not([data-theme="dark"]) .light-only {
+  display: initial;
+}
+
+:root[data-theme="dark"] .light-only,
+:root:not([data-theme="dark"]) .dark-only {
+  display: none;
+}
+
+/* BUTTON */
+
+.btn-ghost {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
 /* NAV */
 
 nav {
   display: flex;
+  justify-content: space-between;
+}
+
+nav .nav-left {
+  display: flex;
   gap: 10px;
+}
+nav .nav-right {
+  display: flex;
 }
 
 a.navlink,
@@ -84,6 +119,7 @@ a.navlink:visited {
   padding: 5px;
   gap: 10px;
   width: max-content;
+  height: max-content;
   font-size: 1.2rem;
 }
 

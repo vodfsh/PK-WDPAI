@@ -56,7 +56,7 @@ services:
 
   browser-sync:
     image: node:20-alpine
-    command: npx browser-sync start --proxy "server:80" --files "public/**/*, src/**/*, views/**/*"
+    command: npx browser-sync start --proxy "server:80" --no-notify --files "public/**/*, src/**/*, views/**/*"
     ports:
       - "3000:3000"
       - "3001:3001"
