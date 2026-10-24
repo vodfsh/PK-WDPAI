@@ -25,3 +25,14 @@
   --black-keys: hsl(0 0% 13%);
   --tertiary: hsl(23 100% 66%);
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  background: var(--background);
+  color: var(--foreground);
+}
