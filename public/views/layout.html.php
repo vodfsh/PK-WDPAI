@@ -40,24 +40,24 @@ use function App\svg_icon;
     <header>
       <nav>
         <div class="nav-left">
-          <a href="/" class="navlink">
+          <a href="/" class="btn-ghost">
             <?= svg_icon('logo'); ?>
             Play it by Eye
           </a>
-          <a href="/leaderboard" class="navlink">
+          <a href="/leaderboard" class="btn-ghost">
             <?= svg_icon('manual'); ?>
             Leaderboard
           </a>
         </div>
         <div class="nav-right">
-          <button onclick="toggleTheme()" href="/settings" class="navlink btn-ghost">
+          <button onclick="toggleTheme()" href="/settings" class="btn-ghost">
             <?= svg_icon('moon', 'light-only'); ?>
             <?= svg_icon('sun', 'dark-only'); ?>
           </button>
-          <a href="/settings" class="navlink">
+          <a href="/settings" class="btn-ghost">
             <?= svg_icon('settings'); ?>
           </a>
-          <a href="/profile" class="navlink">
+          <a href="/profile" class="btn-ghost">
             <?= svg_icon('user'); ?>
           </a>
         </div>
