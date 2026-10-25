@@ -6,12 +6,12 @@ require_once dirname(__DIR__).'/vendor/autoload.php';
 
 require_once dirname(__DIR__).'/src/utils.php';
 
-use App\Controller\DefaultController;
-use App\Controller\LeaderboardController;
-use App\Controller\LoginController;
-use App\Controller\ProfileController;
-use App\Controller\SettingsController;
-use App\Routing;
+use App\Controllers\DefaultController;
+use App\Controllers\LeaderboardController;
+use App\Controllers\LoginController;
+use App\Controllers\ProfileController;
+use App\Controllers\SettingsController;
+use App\Core\Routing;
 
 $routing = new Routing();
 
