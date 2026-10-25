@@ -11,8 +11,8 @@ abstract class AppController
      */
     protected function render(string $template, array $variables = []): void
     {
-        $viewPath = dirname(__DIR__, 2).'/public/views/'.$template.'.html.php';
-        $layoutPath = dirname(__DIR__, 2).'/public/views/layout.html.php';
+        $viewPath = dirname(__DIR__, 1).'/views/'.$template.'.html.php';
+        $layoutPath = dirname(__DIR__, 1).'/views/layout.html.php';
 
         if (!is_file($viewPath)) {
             throw new \RuntimeException('View not found: '.$template);
