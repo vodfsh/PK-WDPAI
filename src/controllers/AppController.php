@@ -20,6 +20,12 @@ abstract class AppController
 
         extract($variables, EXTR_SKIP);
 
+        $cssPath = '/css/'.$template.'.css';
+        $extraCss = $extraCss ?? [];
+        if (is_file(dirname(__DIR__, 2).'/public'.$cssPath)) {
+            $extraCss[] = $cssPath;
+        }
+
         ob_start(); // capture the view
 
         require $viewPath;

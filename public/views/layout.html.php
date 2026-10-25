@@ -1,11 +1,11 @@
 <?php
+/**
+ * @var ?string  $content
+ * @var ?string  $pageTitle
+ * @var string[] $extraCss
+ */
 
 use function App\svg_icon;
-
-/*
- * @var ?string $content
- * @var ?string $pageTitle
- */
 
 $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/';
 $currentPath = ('/' !== $currentPath) ? rtrim($currentPath, '/') : '/';
@@ -48,6 +48,10 @@ $isActive = static function (string $path) use ($currentPath): string {
     </script>
 
     <link rel="stylesheet" href="/css/main.css" />
+
+    <?php foreach ($extraCss as $cssFile) { ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile, ENT_QUOTES, 'UTF-8'); ?>" />
+    <?php } ?>
   </head>
   <body>
     <header>

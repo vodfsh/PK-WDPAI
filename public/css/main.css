@@ -1,7 +1,7 @@
 :root {
   --background: hsl(0 0% 98%);
   --foreground: hsl(0 0% 15%);
-  --foreground-muted: hsl(0 0% 25%);
+  --foreground-muted: hsl(0 0% 35%);
   --card-1-background: hsl(0 0% 100%);
   --card-1-foreground: hsl(0 0% 10%);
   --outline: hsl(245 25% 20% / 0.12);
@@ -115,6 +115,7 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
+  color: var(--foreground-muted);
 }
 
 nav .nav-left {
@@ -126,25 +127,15 @@ nav .nav-right {
 }
 
 nav a,
+nav btn,
 nav a:visited {
-  color: inherit;
   text-decoration: none;
 }
 
-nav .nav-left a:not(.active) {
-  color: var(--foreground-muted);
+nav .active {
+  color: var(--foreground);
 }
 
 nav svg {
   width: 30px;
-}
-
-/* HOME */
-
-.main-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
 }
