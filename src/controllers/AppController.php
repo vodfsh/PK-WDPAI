@@ -22,7 +22,7 @@ abstract class AppController
 
         $cssPath = '/css/'.$template.'.css';
         $extraCss = $extraCss ?? [];
-        if (is_file(dirname(__DIR__, 2).'/public'.$cssPath)) {
+        if (is_file($_SERVER['DOCUMENT_ROOT'].$cssPath)) {
             $extraCss[] = $cssPath;
         }
 

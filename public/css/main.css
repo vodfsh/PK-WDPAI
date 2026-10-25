@@ -39,8 +39,7 @@
 }
 
 :root,
-body,
-button {
+body {
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -54,6 +53,11 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 2rem;
+}
+
+/* prevent FOUC of webcomponents */
+body:has(:not(:defined)) {
+  visibility: hidden;
 }
 
 @font-face {
@@ -91,6 +95,7 @@ body {
   background: none;
   border: none;
   color: inherit;
+  font-family: inherit;
 
   display: flex;
   border-radius: var(--btn-radius);
@@ -107,6 +112,10 @@ body {
 
 .btn-ghost:active {
   background: color-mix(in srgb, var(--foreground) 15%, transparent);
+}
+
+:not(#theme-toggle) .btn-ghost[aria-pressed="true"] {
+  color: var(--primary, #3b82f6);
 }
 
 /* NAV */

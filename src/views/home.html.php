@@ -1,5 +1,7 @@
 <section class="main-app">
-  <span>a</span>
+  <span>
+    <my-toggle variant="ghost">a</my-toggle>
+  </span>
   <span>b</span>
   <span>c</span>
 </section>

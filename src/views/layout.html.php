@@ -30,28 +30,38 @@ $isActive = static function (string $path) use ($currentPath): string {
 
     <!-- FOUC script -->
     <script>
-      (function () {
-        try {
-          const stored = localStorage.getItem("theme");
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          document.documentElement.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
-        } catch (e) {}
-      })();
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
 
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", theme);
 
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-      }
+      document.addEventListener("DOMContentLoaded", () => {
+        // Set the initial checked state of the toggle right away
+        const toggle = document.getElementById("theme-toggle");
+        if (theme === "dark") {
+          toggle.setAttribute("checked", "");
+        }
+        toggle.addEventListener("toggle-change", () => {
+          const currentTheme = document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        });
+      });
     </script>
 
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/css/main.css'); ?>" />
 
     <?php foreach ($extraCss as $cssFile) { ?>
-    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile, ENT_QUOTES, 'UTF-8'); ?>" />
+    <link
+      rel="stylesheet"
+      href="<?= htmlspecialchars($cssFile, ENT_QUOTES, 'UTF-8'); ?>?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].$cssFile); ?>"
+    />
     <?php } ?>
+
+    <script type="module" src="/js/main.js?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/js/main.js'); ?>"></script>
   </head>
   <body>
     <header>
@@ -67,10 +77,10 @@ $isActive = static function (string $path) use ($currentPath): string {
           </a>
         </div>
         <div class="nav-right">
-          <button onclick="toggleTheme()" href="/settings" class="btn-ghost">
+          <my-toggle id="theme-toggle" variant="ghost">
             <?= svg_icon('moon', 'light-only'); ?>
             <?= svg_icon('sun', 'dark-only'); ?>
-          </button>
+          </my-toggle>
           <a href="/settings" class="btn-ghost">
             <?= svg_icon('settings'); ?>
           </a>
