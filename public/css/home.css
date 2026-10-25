@@ -5,3 +5,23 @@
   justify-content: space-between;
   height: 100%;
 }
+
+.settings-bar {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.25rem;
+  align-items: stretch;
+  background: var(--card-background);
+  border-radius: var(--btn-radius);
+}
+
+.btn-group .separator {
+  margin: 0.5rem 0;
+  width: 0.15rem;
+  background: color-mix(in srgb, var(--foreground) 20%, transparent);
+  border-radius: var(--btn-radius);
+}
