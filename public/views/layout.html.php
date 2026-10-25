@@ -6,6 +6,19 @@ use function App\svg_icon;
  * @var ?string $content
  * @var ?string $pageTitle
  */
+
+$currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/';
+$currentPath = ('/' !== $currentPath) ? rtrim($currentPath, '/') : '/';
+
+/**
+ * Helper to return 'active' class if the link matches the current route.
+ */
+$isActive = static function (string $path) use ($currentPath): string {
+    // Normalize target path too
+    $normalizedPath = ('/' !== $path) ? rtrim($path, '/') : '/';
+
+    return $currentPath === $normalizedPath ? 'active' : '';
+};
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +53,11 @@ use function App\svg_icon;
     <header>
       <nav>
         <div class="nav-left">
-          <a href="/" class="btn-ghost">
+          <a href="/" class="btn-ghost <?= $isActive('/'); ?>">
             <?= svg_icon('logo'); ?>
             Play it by Eye
           </a>
-          <a href="/leaderboard" class="btn-ghost">
+          <a href="/leaderboard" class="btn-ghost <?= $isActive('/leaderboard'); ?>">
             <?= svg_icon('manual'); ?>
             Leaderboard
           </a>

@@ -1,6 +1,7 @@
 :root {
   --background: hsl(0 0% 98%);
   --foreground: hsl(0 0% 15%);
+  --foreground-muted: hsl(0 0% 25%);
   --card-1-background: hsl(0 0% 100%);
   --card-1-foreground: hsl(0 0% 10%);
   --outline: hsl(245 25% 20% / 0.12);
@@ -19,6 +20,7 @@
 :root[data-theme="dark"] {
   --background: hsl(0 0% 17%);
   --foreground: hsl(0 0% 87%);
+  --foreground-muted: hsl(0 0% 66%);
   --card-1-background: hsl(0 0% 30%);
   --card-1-foreground: hsl(0 0% 98%);
   --outline: hsl(245 75% 96% / 0.14);
@@ -103,6 +105,10 @@ body {
   background: color-mix(in srgb, var(--foreground) 10%, transparent);
 }
 
+.btn-ghost:active {
+  background: color-mix(in srgb, var(--foreground) 15%, transparent);
+}
+
 /* NAV */
 
 nav {
@@ -123,6 +129,10 @@ nav a,
 nav a:visited {
   color: inherit;
   text-decoration: none;
+}
+
+nav .nav-left a:not(.active) {
+  color: var(--foreground-muted);
 }
 
 nav svg {
