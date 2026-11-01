@@ -32,6 +32,8 @@ use function App\svg_icon;
       </my-toggle>
     </div>
   </div>
-  <span>b</span>
-  <span>c</span>
+
+  <div class="staff-container">(staff)</div>
+
+  <span class="input-container">(piano/note circle)</span>
 </section>
