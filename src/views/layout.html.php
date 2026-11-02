@@ -42,7 +42,7 @@ $isActive = static function (string $path) use ($currentPath): string {
         if (theme === "dark") {
           toggle.setAttribute("checked", "");
         }
-        toggle.addEventListener("toggle-change", () => {
+        toggle.addEventListener("change", () => {
           const currentTheme = document.documentElement.getAttribute("data-theme");
           const newTheme = currentTheme === "dark" ? "light" : "dark";
 
@@ -62,6 +62,13 @@ $isActive = static function (string $path) use ($currentPath): string {
     <?php } ?>
 
     <script type="module" src="/js/main.js?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/js/main.js'); ?>"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>

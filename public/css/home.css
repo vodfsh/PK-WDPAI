@@ -16,8 +16,8 @@
   display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  width: calc(100% - 10em);
-  max-height: 20em;
+  width: calc(100% - 10rem);
+  max-height: 20rem;
   flex: 2;
 }
 
@@ -25,15 +25,14 @@
   display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  width: calc(100% - 10em);
-  max-height: 20em;
+  width: calc(100% - 10rem);
+  max-height: 20rem;
   flex: 1;
 }
 
 .btn-group {
   display: flex;
   gap: 0.25rem;
-  align-items: stretch;
   background: var(--card-background);
   border-radius: var(--btn-radius);
 }

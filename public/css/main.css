@@ -12,9 +12,11 @@
   --black-keys: hsl(0 0% 20%);
   --tertiary: hsl(23 85% 48%);
 
-  --font: Excallifont;
+  --fancy-font: Excallifont;
+  --font: JetBrains Mono;
 
   --btn-radius: 0.25rem;
+  --card-radius: 0.5rem;
 }
 
 :root[data-theme="dark"] {
@@ -71,7 +73,20 @@ body:has(:not(:defined)) {
 :root {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* FONT */
+
+:root,
+button {
   font-family: var(--font);
+  font-weight: 600;
+}
+
+nav,
+h1 {
+  font-family: var(--fancy-font);
+  font-weight: 400;
 }
 
 /* UTILITIES */
@@ -89,39 +104,91 @@ body:has(:not(:defined)) {
   display: none;
 }
 
+/* SEGMENTED-RADIO */
+.my-segmented-radio {
+  font-family: inherit;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  border: 0.2rem solid var(--outline);
+  border-radius: var(--btn-radius);
+  padding: 0.25rem;
+  width: fit-content;
+}
+
+.my-segmented-radio .button {
+  height: 2rem;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.my-segmented-radio input:checked + label {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.my-segmented-radio input:checked + label {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.my-segmented-radio input:checked + label:hover {
+  background: color-mix(in srgb, var(--primary) 70%, var(--foreground));
+  transition: background-color 0s;
+}
+
 /* BUTTON */
 
 button,
+.button,
 .btn-ghost {
   background: none;
   border: none;
   color: inherit;
   font-family: inherit;
+  cursor: pointer;
 
-  display: flex;
+  display: inline-flex;
   border-radius: var(--btn-radius);
   align-items: center;
+  justify-content: center;
   padding-inline: 1.5rem;
   gap: 0.5rem;
   height: 2.5rem;
 }
 
+button:focus-visible,
+.button:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid hsl(from var(--primary) h s l / 70%);
+  outline-offset: 2px;
+  border-radius: var(--btn-radius);
+}
+
 button svg,
+.button svg,
 .btn-ghost svg,
 my-toggle svg {
   height: 1.5rem;
 }
 
 button:has(svg),
+.button:has(svg),
 .btn-ghost:has(svg),
 my-toggle:has(svg)::part(button) {
   padding-inline: 0.5rem;
 }
 
+button:hover,
+.button:hover,
 .btn-ghost:hover {
   background: color-mix(in srgb, var(--foreground) 10%, transparent);
+  transition: background-color 0s !important;
 }
 
+button:active,
+.button:active,
 .btn-ghost:active {
   background: color-mix(in srgb, var(--foreground) 15%, transparent);
 }

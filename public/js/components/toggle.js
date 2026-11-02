@@ -40,7 +40,7 @@ export class MyToggle extends HTMLElement {
     }
 
     this.dispatchEvent(
-      new CustomEvent("toggle-change", {
+      new CustomEvent("change", {
         detail: { checked: !isChecked },
         bubbles: true,
         composed: true,
