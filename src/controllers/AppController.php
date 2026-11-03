@@ -25,6 +25,11 @@ abstract class AppController
         if (is_file($_SERVER['DOCUMENT_ROOT'].$cssPath)) {
             $extraCss[] = $cssPath;
         }
+        $jsPath = '/js/'.$template.'.js';
+        $extraJs = $extraJs ?? [];
+        if (is_file($_SERVER['DOCUMENT_ROOT'].$jsPath)) {
+            $extraJs[] = $jsPath;
+        }
 
         ob_start(); // capture the view
 

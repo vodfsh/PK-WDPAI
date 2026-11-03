@@ -33,7 +33,7 @@ export class MySegmentedRadio extends HTMLElement {
             const id = `seg-${name}-${index}`;
             const isChecked = opt.value === currentValue;
             return `
-            <input part="input" hidden type="radio" id="${id}" name="${name}" value="${opt.value}" ${isChecked ? "checked" : ""}>
+            <input part="input" style="opacity: 0; position: absolute" type="radio" id="${id}" name="${name}" value="${opt.value}" ${isChecked ? "checked" : ""}>
             <label part="button" class="button" for="${id}">${opt.label}</label>
           `;
           })

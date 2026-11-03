@@ -4,6 +4,12 @@ body > main {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+
+  --btn-height: 3rem;
+}
+
+form {
+  display: contents;
 }
 
 h1 {
@@ -13,6 +19,7 @@ h1 {
 .login-card {
   display: flex;
   flex-direction: column;
+  gap: 1em;
   max-width: 30rem;
   width: 100%;
 
@@ -31,4 +38,8 @@ my-segmented-radio::part(container) {
 
 my-segmented-radio::part(button) {
   flex-grow: 1;
+}
+
+:not(.register) > .register-only {
+  display: none;
 }

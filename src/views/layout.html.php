@@ -3,6 +3,7 @@
  * @var ?string  $content
  * @var ?string  $pageTitle
  * @var string[] $extraCss
+ * @var string[] $extraJs
  */
 
 use function App\svg_icon;
@@ -54,14 +55,22 @@ $isActive = static function (string $path) use ($currentPath): string {
 
     <link rel="stylesheet" href="/css/main.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/css/main.css'); ?>" />
 
-    <?php foreach ($extraCss as $cssFile) { ?>
+    <?php foreach ($extraCss as $file) { ?>
     <link
       rel="stylesheet"
-      href="<?= htmlspecialchars($cssFile, ENT_QUOTES, 'UTF-8'); ?>?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].$cssFile); ?>"
+      href="<?= htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].$file); ?>"
     />
     <?php } ?>
 
-    <script type="module" src="/js/main.js?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/js/main.js'); ?>"></script>
+    <?php foreach ($extraJs as $file) { ?>
+    <script src="<?= htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].$file); ?>"></script>
+    <?php } ?>
+
+    <script
+      type="module"
+      src="/js/main.js?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/js/main.js'); ?>"
+      blocking="render"
+    ></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
