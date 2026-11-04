@@ -30,31 +30,11 @@ $isActive = static function (string $path) use ($currentPath): string {
     <title><?= htmlspecialchars($pageTitle ?? 'Play it by Eye'); ?></title>
 
     <!-- FOUC script -->
-    <script>
-      const stored = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const theme = stored || (prefersDark ? "dark" : "light");
-
-      document.documentElement.setAttribute("data-theme", theme);
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // Set the initial checked state of the toggle right away
-        const toggle = document.getElementById("theme-toggle");
-        if (theme === "dark") {
-          toggle.setAttribute("checked", "");
-        }
-        toggle.addEventListener("change", () => {
-          const currentTheme = document.documentElement.getAttribute("data-theme");
-          const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-          document.documentElement.setAttribute("data-theme", newTheme);
-          localStorage.setItem("theme", newTheme);
-        });
-      });
-    </script>
+    <script src="js/theme.js"></script>
 
     <link rel="stylesheet" href="/css/main.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/css/main.css'); ?>" />
 
+    <!-- CSS -->
     <?php foreach ($extraCss as $file) { ?>
     <link
       rel="stylesheet"
@@ -62,6 +42,7 @@ $isActive = static function (string $path) use ($currentPath): string {
     />
     <?php } ?>
 
+    <!-- JS -->
     <?php foreach ($extraJs as $file) { ?>
     <script src="<?= htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].$file); ?>"></script>
     <?php } ?>
@@ -83,26 +64,17 @@ $isActive = static function (string $path) use ($currentPath): string {
     <header>
       <nav>
         <div class="nav-left">
-          <a href="/" class="btn-ghost <?= $isActive('/'); ?>">
-            <?= svg_icon('logo'); ?>
-            Play it by Eye
-          </a>
+          <a href="/" class="btn-ghost <?= $isActive('/'); ?>"> <?= svg_icon('logo'); ?> Play it by Eye </a>
           <a href="/leaderboard" class="btn-ghost <?= $isActive('/leaderboard'); ?>">
-            <?= svg_icon('manual'); ?>
-            Leaderboard
+            <?= svg_icon('manual'); ?> Leaderboard
           </a>
         </div>
         <div class="nav-right">
           <my-toggle id="theme-toggle" variant="ghost">
-            <?= svg_icon('moon', 'light-only'); ?>
-            <?= svg_icon('sun', 'dark-only'); ?>
+            <?= svg_icon('moon', 'light-only'); ?> <?= svg_icon('sun', 'dark-only'); ?>
           </my-toggle>
-          <a href="/settings" class="btn-ghost">
-            <?= svg_icon('settings'); ?>
-          </a>
-          <a href="/profile" class="btn-ghost">
-            <?= svg_icon('user'); ?>
-          </a>
+          <a href="/settings" class="btn-ghost"> <?= svg_icon('settings'); ?> </a>
+          <a href="/profile" class="btn-ghost"> <?= svg_icon('user'); ?> </a>
         </div>
       </nav>
     </header>

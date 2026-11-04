@@ -22,6 +22,7 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --background: hsl(0 0% 17%);
   --foreground: hsl(0 0% 87%);
   --foreground-muted: hsl(0 0% 66%);
