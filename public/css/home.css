@@ -10,13 +10,15 @@
 .settings-bar {
   display: flex;
   gap: 1rem;
+  max-width: var(--max-content-width);
 }
 
 .staff-container {
   display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  width: calc(100% - 10rem);
+  width: 100%;
+  max-width: var(--max-content-width);
   max-height: 20rem;
   flex: 2;
 }
@@ -25,7 +27,8 @@
   display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  width: calc(100% - 10rem);
+  width: 100%;
+  max-width: var(--max-content-width);
   max-height: 20rem;
   flex: 1;
 }

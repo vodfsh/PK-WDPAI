@@ -1,9 +1,11 @@
 :root {
-  --background: hsl(0 0% 98%);
+  --background: hsl(0 0% 90%);
   --foreground: hsl(0 0% 15%);
   --foreground-muted: hsl(0 0% 35%);
-  --card-background: hsl(0 0% 100%);
+  --card-background: hsl(0 0% 95%);
   --card-foreground: hsl(0 0% 10%);
+  --card2-background: hsl(0 0% 90%);
+  --card2-foreground: hsl(0 0% 10%);
   --outline: hsl(245 25% 20% / 0.12);
   --primary: hsl(189 52% 38%);
   --primary-foreground: hsl(0 0% 100%);
@@ -19,6 +21,7 @@
   --card-radius: 0.5rem;
 
   --btn-height: 2.5rem;
+  --max-content-width: 75rem;
 }
 
 :root[data-theme="dark"] {
@@ -28,6 +31,8 @@
   --foreground-muted: hsl(0 0% 66%);
   --card-background: hsl(0 0% 23%);
   --card-foreground: hsl(0 0% 98%);
+  --card2-background: hsl(0 0% 30%);
+  --card2-foreground: hsl(0 0% 98%);
   --outline: hsl(245 75% 96% / 0.14);
   --primary: hsl(189 44% 58%);
   --primary-foreground: hsl(187 100% 12%);
@@ -91,6 +96,10 @@ h1 {
 }
 
 /* UTILITIES */
+
+.grow {
+  flex-grow: 1;
+}
 
 :root .big {
   font-size: 110%;

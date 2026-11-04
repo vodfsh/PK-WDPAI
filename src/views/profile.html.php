@@ -3,8 +3,19 @@
  * @var string $profileUser
  */
 ?>
+<main>
+  <section class="card profile-section">
+    <img src="TODO" alt="profile picture" />
+    <span class="username"><?= $profileUser; ?></span>
+    <div class="grow"></div>
+    <span>member since [date]</span>
+  </section>
 
-<h1>
-  Profile of user
-  <?= $profileUser; ?>
-</h1>
+  <section class="stats-section">
+    <div class="card">TODO</div>
+    <div class="card">TODO</div>
+    <div class="card">TODO</div>
+    <div class="card">TODO</div>
+    <div class="card">TODO</div>
+  </section>
+</main>
