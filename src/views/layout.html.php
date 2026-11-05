@@ -64,14 +64,19 @@ $isActive = static function (string $path) use ($currentPath): string {
     <header>
       <nav>
         <div class="nav-left">
-          <a href="/" class="btn-ghost <?= $isActive('/'); ?>"> <?= svg_icon('logo'); ?> Play it by Eye </a>
+          <a href="/" class="btn-ghost <?= $isActive('/'); ?>">
+            <?= svg_icon('logo'); ?>
+            Play it by Eye
+          </a>
           <a href="/leaderboard" class="btn-ghost <?= $isActive('/leaderboard'); ?>">
-            <?= svg_icon('manual'); ?> Leaderboard
+            <?= svg_icon('manual'); ?>
+            Leaderboard
           </a>
         </div>
         <div class="nav-right">
           <my-toggle id="theme-toggle" variant="ghost">
-            <?= svg_icon('moon', 'light-only'); ?> <?= svg_icon('sun', 'dark-only'); ?>
+            <?= svg_icon('moon', 'light-only'); ?>
+            <?= svg_icon('sun', 'dark-only'); ?>
           </my-toggle>
           <a href="/settings" class="btn-ghost"> <?= svg_icon('settings'); ?> </a>
           <a href="/profile" class="btn-ghost"> <?= svg_icon('user'); ?> </a>

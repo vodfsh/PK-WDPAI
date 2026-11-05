@@ -1,0 +1,30 @@
+repos:
+  - repo: local
+    hooks:
+      - id: prettier
+        name: Run Prettier Check
+        entry: npx prettier --check .
+        language: system
+        types: [file]
+        pass_filenames: false
+
+      - id: composer-validate
+        name: Validate composer.json and composer.lock
+        entry: composer validate
+        language: system
+        files: composer\.(json|lock)
+        pass_filenames: false
+
+      - id: php-cs-fixer
+        name: Run PHP-CS-Fixer
+        entry: vendor/bin/php-cs-fixer fix --dry-run --diff
+        language: system
+        types: [php]
+        pass_filenames: false
+
+      - id: phpstan
+        name: Run PHPStan
+        entry: vendor/bin/phpstan analyze
+        language: system
+        types: [php]
+        pass_filenames: false
