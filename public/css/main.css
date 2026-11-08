@@ -101,6 +101,10 @@ h1 {
   flex-grow: 1;
 }
 
+.hidden {
+  display: none !important;
+}
+
 :root .big {
   font-size: 110%;
 }
@@ -137,7 +141,7 @@ h1 {
   height: var(--btn-height);
 }
 
-.my-segmented-radio .button {
+.my-segmented-radio .btn {
   height: calc(var(--btn-height) - 0.5rem - 0.4rem);
   transition:
     color 0.2s ease,
@@ -244,6 +248,45 @@ my-toggle#theme-toggle::part(button) {
 
 /* INPUT */
 
+label:not(.btn) {
+  user-select: none;
+  display: inline-block;
+  margin: 0.25rem 0;
+}
+
+input[type="checkbox"] {
+  user-select: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.2rem solid var(--outline);
+  border-radius: var(--btn-radius);
+  background-color: none;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 0;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.35rem;
+  height: 0.7rem;
+  border: solid var(--card-background);
+  border-width: 0 0.125rem 0.125rem 0;
+  transform: translate(-50%, -58%) rotate(45deg);
+}
+
 form input[type="text"],
 form input[type="password"],
 form .btn,
@@ -264,8 +307,6 @@ input[type="password"] {
   padding: 0.25rem;
   width: max-content;
   height: var(--btn-height);
-
-  margin: 0.25rem 0;
 }
 
 /* NAV */

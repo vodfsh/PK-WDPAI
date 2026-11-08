@@ -40,16 +40,26 @@ my-segmented-radio::part(button) {
   flex-grow: 1;
 }
 
-form:not(.register) .register-only {
+.on-login,
+.on-register,
+.on-forgot {
   display: none;
 }
 
-form.register .login-only {
-  display: none;
+form[data-tab="register"] .on-register {
+  display: initial;
+}
+
+form[data-tab="sign-in"] .on-login {
+  display: initial;
+}
+
+form[data-tab="forgot"] .on-forgot {
+  display: initial;
 }
 
 .label-container {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }

@@ -11,8 +11,34 @@ export class MySegmentedRadio extends HTMLElement {
     return ["value"];
   }
 
+  get value() {
+    return this.getAttribute("value");
+  }
+
+  set value(newValue) {
+    this.setAttribute("value", newValue);
+  }
+
   connectedCallback() {
     this.render();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "value" && oldValue !== newValue && this.shadowRoot) {
+      const radios = this.shadowRoot.querySelectorAll('input[type="radio"]');
+      radios.forEach((radio) => {
+        // @ts-ignore
+        radio.checked = radio.value === newValue;
+      });
+
+      this.dispatchEvent(
+        new CustomEvent("change", {
+          detail: { value: newValue },
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
   }
 
   render() {
@@ -20,10 +46,14 @@ export class MySegmentedRadio extends HTMLElement {
       value: opt.value || opt.textContent.trim(),
       label: opt.textContent.trim(),
       selected: opt.hasAttribute("selected") || opt.selected,
+      hidden: opt.hasAttribute("hidden") || opt.hidden,
     }));
 
     const defaultSelectedOption = options.find((opt) => opt.selected);
     const currentValue = this.getAttribute("value") || defaultSelectedOption?.value || options[0]?.value;
+
+    this.setAttribute("value", currentValue);
+
     const name = this.getAttribute("name") || "segmented-group";
 
     this.shadowRoot.innerHTML = `
@@ -33,8 +63,8 @@ export class MySegmentedRadio extends HTMLElement {
             const id = `seg-${name}-${index}`;
             const isChecked = opt.value === currentValue;
             return `
-            <input part="input" style="opacity: 0; position: absolute" type="radio" id="${id}" name="${name}" value="${opt.value}" ${isChecked ? "checked" : ""}>
-            <label part="button" class="button" for="${id}">${opt.label}</label>
+            <input part="input" style="opacity: 0; position: absolute" type="radio" id="${id}" name="${name}" value="${opt.value}" ${isChecked ? "checked" : ""} ${opt.hidden ? "hidden" : ""}>
+            <label part="button" class="btn ${opt.hidden ? "hidden" : ""}" for="${id}">${opt.label}</label>
           `;
           })
           .join("")}
@@ -49,7 +79,7 @@ export class MySegmentedRadio extends HTMLElement {
       radio.addEventListener("change", (e) => {
         // @ts-ignore
         const value = e.target.value;
-        this.setAttribute("value", value);
+        this.value = value;
         this.dispatchEvent(
           new CustomEvent("change", {
             detail: { value: value },
