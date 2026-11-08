@@ -1,4 +1,4 @@
-body > main {
+main.app {
   display: flex;
   flex-direction: column;
   justify-content: center;

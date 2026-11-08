@@ -21,7 +21,6 @@
   --card-radius: 0.5rem;
 
   --btn-height: 2.5rem;
-  --max-content-width: 75rem;
 }
 
 :root[data-theme="dark"] {
@@ -63,6 +62,13 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 2rem;
+}
+
+main.app {
+  max-width: 75rem;
+  width: 100%;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
 
 /* prevent FOUC of webcomponents */

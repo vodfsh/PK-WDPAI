@@ -1,4 +1,4 @@
-.main-app {
+main.app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,6 @@
 .settings-bar {
   display: flex;
   gap: 1rem;
-  max-width: var(--max-content-width);
 }
 
 .staff-container {
@@ -18,7 +17,6 @@
   background: var(--card-background);
   border-radius: var(--btn-radius);
   width: 100%;
-  max-width: var(--max-content-width);
   max-height: 20rem;
   flex: 2;
 }
@@ -28,7 +26,6 @@
   background: var(--card-background);
   border-radius: var(--btn-radius);
   width: 100%;
-  max-width: var(--max-content-width);
   max-height: 20rem;
   flex: 1;
 }

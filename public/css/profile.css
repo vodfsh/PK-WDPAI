@@ -1,22 +1,20 @@
-body > main {
+main.app {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
-body > main > section {
+main.app > section {
   display: flex;
   border-radius: var(--btn-radius);
   width: 100%;
-  max-width: var(--max-content-width);
 }
 
 .card {
   display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  max-width: var(--max-content-width);
   padding: 2rem;
 }
 

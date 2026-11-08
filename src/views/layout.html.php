@@ -83,8 +83,9 @@ $isActive = static function (string $path) use ($currentPath): string {
         </div>
       </nav>
     </header>
-
-    <?= $content ?? ''; ?>
+    <main class="app">
+      <?= $content ?? ''; ?>
+    </main>
     <footer>footer</footer>
   </body>
 </html>
