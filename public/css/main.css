@@ -117,12 +117,8 @@ h1 {
 
 /* MISC */
 
-button:focus-visible,
-.button:focus-visible,
-.btn-ghost:focus-visible,
-.btn-primary:focus-visible,
-.my-segmented-radio input:focus-visible + label,
-input:focus-visible {
+:is(button, .btn, input):focus-visible,
+.my-segmented-radio input:focus-visible + label {
   outline: 2px solid hsl(from var(--primary) h s l / 70%);
   outline-offset: 2px;
   border-radius: var(--btn-radius);
@@ -170,9 +166,7 @@ input:focus-visible {
 /* BUTTON */
 
 button,
-.button,
-.btn-ghost,
-.btn-primary {
+.btn {
   background: none;
   border: none;
   color: inherit;
@@ -196,26 +190,35 @@ button,
   font-weight: 600;
 }
 
-button svg,
-.button svg,
-.btn-ghost svg,
-.btn-primary svg,
-my-toggle svg {
+.btn-link {
+  height: min-content;
+  width: max-content;
+  color: var(--primary);
+  background: none;
+  padding: 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline var(--primary);
+  background: none;
+}
+
+.btn-link:active {
+  color: color-mix(in srgb, var(--primary) 70%, var(--foreground));
+}
+
+:is(button, .btn, my-toggle) svg {
   height: 1.5rem;
 }
 
 button:has(svg),
-.button:has(svg),
-.btn-ghost:has(svg),
-.btn-primary:has(svg),
+.btn:has(svg),
 my-toggle:has(svg)::part(button) {
   padding-inline: 0.5rem;
 }
 
 button:hover,
-.button:hover,
-.btn-ghost:hover,
-.btn-primary:hover {
+.btn:hover {
   background: color-mix(in srgb, var(--foreground) 10%, transparent);
 }
 
@@ -224,8 +227,7 @@ button:hover,
 }
 
 button:active,
-.button:active,
-.btn-ghost:active {
+.btn:active {
   background: color-mix(in srgb, var(--foreground) 15%, transparent);
 }
 .btn-primary:active {
@@ -244,7 +246,7 @@ my-toggle#theme-toggle::part(button) {
 
 form input[type="text"],
 form input[type="password"],
-form .button,
+form .btn,
 form button {
   width: 100%;
 }

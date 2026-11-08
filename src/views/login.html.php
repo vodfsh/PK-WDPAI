@@ -19,7 +19,10 @@
       </div>
 
       <div>
-        <label for="password">Password</label>
+        <div class="label-container">
+          <label for="confirm-password">Confirm password</label>
+          <button type="button" class="btn-link login-only">forgot password?</button>
+        </div>
         <input type="password" id="password" />
       </div>
 

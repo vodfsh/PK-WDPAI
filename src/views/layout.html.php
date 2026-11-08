@@ -30,7 +30,7 @@ $isActive = static function (string $path) use ($currentPath): string {
     <title><?= htmlspecialchars($pageTitle ?? 'Play it by Eye'); ?></title>
 
     <!-- FOUC script -->
-    <script src="js/theme.js"></script>
+    <script src="/js/theme.js"></script>
 
     <link rel="stylesheet" href="/css/main.css?v=<?= @filemtime($_SERVER['DOCUMENT_ROOT'].'/css/main.css'); ?>" />
 
@@ -64,11 +64,11 @@ $isActive = static function (string $path) use ($currentPath): string {
     <header>
       <nav>
         <div class="nav-left">
-          <a href="/" class="btn-ghost <?= $isActive('/'); ?>">
+          <a href="/" class="btn btn-ghost <?= $isActive('/'); ?>">
             <?= svg_icon('logo'); ?>
             Play it by Eye
           </a>
-          <a href="/leaderboard" class="btn-ghost <?= $isActive('/leaderboard'); ?>">
+          <a href="/leaderboard" class="btn btn-ghost <?= $isActive('/leaderboard'); ?>">
             <?= svg_icon('manual'); ?>
             Leaderboard
           </a>
@@ -78,8 +78,8 @@ $isActive = static function (string $path) use ($currentPath): string {
             <?= svg_icon('moon', 'light-only'); ?>
             <?= svg_icon('sun', 'dark-only'); ?>
           </my-toggle>
-          <a href="/settings" class="btn-ghost"> <?= svg_icon('settings'); ?> </a>
-          <a href="/profile" class="btn-ghost"> <?= svg_icon('user'); ?> </a>
+          <a href="/settings" class="btn btn-ghost"> <?= svg_icon('settings'); ?> </a>
+          <a href="/profile" class="btn btn-ghost"> <?= svg_icon('user'); ?> </a>
         </div>
       </nav>
     </header>
