@@ -6,22 +6,28 @@ main.app {
 }
 
 main.app > section {
-  display: flex;
   border-radius: var(--btn-radius);
   width: 100%;
 }
 
 .card {
-  display: flex;
   background: var(--card-background);
   border-radius: var(--btn-radius);
-  padding: 2rem;
+  padding: 1rem;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .profile-section {
   height: 8rem;
   gap: 1rem;
+  padding: 2rem;
+  display: flex;
   align-items: center;
+  flex-direction: row;
 }
 
 .profile-section img {
@@ -32,15 +38,31 @@ main.app > section {
 }
 
 .username {
-  font-size: 120%;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 .stats-section {
+  display: flex;
   gap: 0.5rem;
   width: 100%;
 }
 
 .stats-section > .card {
   flex: 1;
+}
+
+.stats-section h3 {
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--foreground-muted);
+}
+
+.stats-section span {
+  font-size: 1.5rem;
+}
+
+.stats-section span.constant {
+  font-size: 1.1rem;
 }

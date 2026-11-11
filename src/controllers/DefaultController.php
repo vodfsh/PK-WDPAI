@@ -9,14 +9,14 @@ final class DefaultController extends AppController
     public function index(): void
     {
         $this->render('home', [
-            'pageTitle' => 'Play it by Eye',
+            'pageTitle' => '',
         ]);
     }
 
     public function notFound(): void
     {
         $this->render('not-found', [
-            'pageTitle' => 'Page not found - Play it by Eye',
+            'pageTitle' => 'Page not found',
         ]);
     }
 }

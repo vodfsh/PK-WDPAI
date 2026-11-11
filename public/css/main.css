@@ -41,11 +41,63 @@
   --tertiary: hsl(23 100% 66%);
 }
 
+/* RESETS */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* MAIN */
 
 :root,
 body {
@@ -103,16 +155,41 @@ h1 {
 
 /* UTILITIES */
 
-.grow {
-  flex-grow: 1;
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .hidden {
   display: none !important;
 }
 
-:root .big {
-  font-size: 110%;
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.big {
+  font-size: 1.1rem;
+}
+
+.muted {
+  color: var(--foreground-muted);
 }
 
 :root[data-theme="dark"] .dark-only,
@@ -194,10 +271,20 @@ button,
   height: var(--btn-height);
 }
 
+button.small,
+.btn.small {
+  padding-inline: 0.75rem;
+  height: calc(var(--btn-height) * 0.7);
+}
+
 .btn-primary {
   background: var(--primary);
   color: var(--primary-foreground);
   font-weight: 600;
+}
+
+.btn-outline {
+  border: 0.2rem solid var(--outline);
 }
 
 .btn-link {
@@ -313,6 +400,36 @@ input[type="password"] {
   padding: 0.25rem;
   width: max-content;
   height: var(--btn-height);
+}
+
+/* TABLE */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+}
+
+table,
+th {
+  border-width: 0.15rem 0;
+  border-style: solid;
+  border-color: var(--outline);
+}
+
+th {
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+th,
+td {
+  padding: 0.5rem 0.25rem;
+  text-align: start;
+}
+
+tbody tr:hover {
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
 }
 
 /* NAV */

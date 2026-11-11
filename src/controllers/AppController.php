@@ -20,6 +20,9 @@ abstract class AppController
 
         extract($variables, EXTR_SKIP);
 
+        $pageTitle = ($pageTitle ?? '');
+        $pageTitle .= ('' === $pageTitle ? '' : ' - ').'Play it by Eye';
+
         $cssPath = '/css/'.$template.'.css';
         $extraCss = $extraCss ?? [];
         if (is_file($_SERVER['DOCUMENT_ROOT'].$cssPath)) {

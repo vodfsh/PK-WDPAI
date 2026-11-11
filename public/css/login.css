@@ -3,7 +3,7 @@ main.app {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 
   --btn-height: 3rem;
 }
@@ -13,7 +13,7 @@ form {
 }
 
 h1 {
-  font-size: 170%;
+  font-size: 1.7rem;
 }
 
 .login-card {
