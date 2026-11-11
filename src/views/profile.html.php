@@ -4,7 +4,7 @@
  */
 ?>
 <section class="card profile-section">
-  <h2 class="visually-hidden">Profile</h2>
+  <h2 class="sr-only">Profile</h2>
   <img alt="profile picture" />
   <span class="username"><?= $profileUser; ?></span>
   <div class="grow"></div>
@@ -12,7 +12,7 @@
 </section>
 
 <section class="stats-section">
-  <h2 class="visually-hidden">Statistics</h2>
+  <h2 class="sr-only">Statistics</h2>
   <div class="card">
     <h3>top speed</h3>
     <span>[123]</span>
