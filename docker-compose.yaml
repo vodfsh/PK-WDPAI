@@ -19,13 +19,14 @@ services:
     ports:
       - "${POSTGRES_PORT:-5433}:5432"
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-db}
+      POSTGRES_USER: ${POSTGRES_USER:-docker}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-docker}
     networks:
       - pg-network
     volumes:
       - ./docker/db:/docker-entrypoint-initdb.d
+      - ./docker/db/init:/docker-entrypoint-initdb.d:ro
 
   php:
     build:
@@ -47,8 +48,8 @@ services:
     image: dpage/pgadmin4:latest
     container_name: ${PGADMIN_CONTAINER_NAME:-pg-admin}
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-example@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-password}
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
