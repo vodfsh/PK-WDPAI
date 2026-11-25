@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
   const selector = document.querySelector("my-segmented-radio");
-  const form = document.getElementById("form");
+  const form = document.querySelector("form");
   const forgotBtn = document.querySelector("button#forgot-btn");
 
   const registerInputs = document.querySelectorAll(".on-register input, input.on-register");
@@ -20,10 +20,12 @@ window.addEventListener("load", () => {
     if (tab == "sign-in") {
       loginInputs.forEach((el) => {
         el.removeAttribute("disabled");
+        form.action = "/login";
       });
     } else if (tab == "register") {
       registerInputs.forEach((el) => {
         el.removeAttribute("disabled");
+        form.action = "/register";
       });
     } else {
       forgotInputs.forEach((el) => {

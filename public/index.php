@@ -18,7 +18,9 @@ $routing = new Routing();
 $routing->get('/', DefaultController::class, 'index');
 $routing->get('/leaderboard', LeaderboardController::class, 'index');
 $routing->get('/settings', SettingsController::class, 'index');
-$routing->get('/login', LoginController::class, 'index');
+$routing->get('/login', LoginController::class, 'login');
+$routing->post('/login', LoginController::class, 'login');
+$routing->post('/register', LoginController::class, 'register');
 $routing->get('/profile', ProfileController::class, 'index');
 $routing->get('/profile/{username}', ProfileController::class, 'show');
 

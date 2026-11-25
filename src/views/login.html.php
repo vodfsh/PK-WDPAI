@@ -7,15 +7,15 @@
     <option value="forgot" hidden>Forgot</option>
   </my-segmented-radio>
 
-  <form id="form" action="NONE">
+  <form id="form" method="POST">
     <div class="on-login on-register">
       <label for="login">Login</label>
-      <input type="text" id="login" />
+      <input type="text" name="login" id="login" />
     </div>
 
     <div class="on-register on-forgot">
       <label for="email">Email</label>
-      <input type="text" id="email" />
+      <input type="text" name="email" id="email" />
     </div>
 
     <div class="on-login on-register">
@@ -23,20 +23,20 @@
         <label for="password">Password</label>
         <button id="forgot-btn" type="button" class="btn-link on-login">forgot password?</button>
       </div>
-      <input type="password" id="password" />
+      <input type="password" name="password" id="password" />
     </div>
 
     <div class="on-register">
       <label for="confirm-password">Confirm password</label>
-      <input type="password" id="confirm-password" />
+      <input type="password" name="confirm-password" id="confirm-password" />
     </div>
 
     <div class="on-login">
-      <input type="checkbox" id="remember-me" />
+      <input type="checkbox" name="remember-me" id="remember-me" />
       <label for="remember-me">Remember me</label>
     </div>
 
-    <button type="button" class="btn-primary big">
+    <button class="btn-primary big">
       <span class="on-login">Sign In</span>
       <span class="on-register">Register</span>
       <span class="on-forgot">Send reset link</span>

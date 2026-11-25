@@ -6,6 +6,16 @@ namespace App\Controllers;
 
 abstract class AppController
 {
+    protected function isGet(): bool
+    {
+        return ($_SERVER['REQUEST_METHOD'] ?? '') === 'GET';
+    }
+
+    protected function isPost(): bool
+    {
+        return ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST';
+    }
+
     /**
      * @param array<string,mixed> $variables
      */
