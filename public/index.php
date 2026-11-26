@@ -6,9 +6,9 @@ require_once dirname(__DIR__).'/vendor/autoload.php';
 
 require_once dirname(__DIR__).'/src/utils.php';
 
+use App\Controllers\AuthController;
 use App\Controllers\DefaultController;
 use App\Controllers\LeaderboardController;
-use App\Controllers\LoginController;
 use App\Controllers\ProfileController;
 use App\Controllers\SettingsController;
 use App\Core\Routing;
@@ -18,9 +18,9 @@ $routing = new Routing();
 $routing->get('/', DefaultController::class, 'index');
 $routing->get('/leaderboard', LeaderboardController::class, 'index');
 $routing->get('/settings', SettingsController::class, 'index');
-$routing->get('/login', LoginController::class, 'login');
-$routing->post('/login', LoginController::class, 'login');
-$routing->post('/register', LoginController::class, 'register');
+$routing->get('/login', AuthController::class, 'login');
+$routing->post('/login', AuthController::class, 'login');
+$routing->post('/register', AuthController::class, 'register');
 $routing->get('/profile', ProfileController::class, 'index');
 $routing->get('/profile/{username}', ProfileController::class, 'show');
 
