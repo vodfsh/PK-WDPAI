@@ -56,7 +56,7 @@ abstract class AppController
 
         extract($variables, EXTR_SKIP);
 
-        $pageTitle = ($pageTitle ?? '');
+        $pageTitle = $pageTitle ?? '';
         $pageTitle .= ('' === $pageTitle ? '' : ' - ').'Play it by Eye';
 
         $cssPath = '/css/'.$template.'.css';

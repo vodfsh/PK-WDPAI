@@ -25,12 +25,9 @@ $routing->post('/register', AuthController::class, 'register');
 $routing->get('/profile', ProfileController::class, 'index');
 $routing->get('/profile/{username}', ProfileController::class, 'show');
 
-$routeFound = $routing->dispatch(
-    $_SERVER['REQUEST_METHOD'],
-    $_SERVER['REQUEST_URI'],
-);
+$routeFound = $routing->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 
 if (!$routeFound) {
     http_response_code(404);
-    (new DefaultController())->notFound();
+    new DefaultController()->notFound();
 }
