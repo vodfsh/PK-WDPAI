@@ -17,6 +17,32 @@ abstract class AppController
     }
 
     /**
+     * Returns a submitted POST value, or the default when it was not posted.
+     */
+    protected function input(string $key, string $default = ''): string
+    {
+        $value = $_POST[$key] ?? $default;
+
+        return is_string($value) ? $value : $default;
+    }
+
+    /**
+     * @param string[] $keys
+     *
+     * @return array<string,string>
+     */
+    protected function inputs(array $keys): array
+    {
+        $values = [];
+
+        foreach ($keys as $key) {
+            $values[$key] = $this->input($key);
+        }
+
+        return $values;
+    }
+
+    /**
      * @param array<string,mixed> $variables
      */
     protected function render(string $template, array $variables = []): void

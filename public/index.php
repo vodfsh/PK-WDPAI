@@ -20,6 +20,7 @@ $routing->get('/leaderboard', LeaderboardController::class, 'index');
 $routing->get('/settings', SettingsController::class, 'index');
 $routing->get('/login', AuthController::class, 'login');
 $routing->post('/login', AuthController::class, 'login');
+$routing->get('/register', AuthController::class, 'register');
 $routing->post('/register', AuthController::class, 'register');
 $routing->get('/profile', ProfileController::class, 'index');
 $routing->get('/profile/{username}', ProfileController::class, 'show');

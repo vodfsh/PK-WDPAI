@@ -124,7 +124,7 @@ main.app {
 }
 
 /* prevent FOUC of webcomponents */
-body:has(:not(:defined)) {
+body:has(my-toggle:not(:defined)) {
   visibility: hidden;
 }
 

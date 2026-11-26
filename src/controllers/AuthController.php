@@ -8,30 +8,27 @@ final class AuthController extends AppController
 {
     public function login(): void
     {
-        if ($this->isPost()) {
-            $login = $_POST['login'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $remember_me = ($_POST['remember-me'] ?? '') == 'on';
-            var_dump($login, $password, $remember_me);
-        }
-
         $this->render('login', [
             'pageTitle' => 'Login',
+            'activeTab' => 'sign-in',
+            'formError' => null,
+            'values' => $this->inputs(['login', 'password', 'remember-me']),
         ]);
     }
 
     public function register(): void
     {
-        if ($this->isPost()) {
-            $login = $_POST['login'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $confirm_password = $_POST['confirm-password'] ?? '';
-            var_dump($login, $email, $password, $confirm_password);
+        $formError = null;
+
+        if ($this->isPost() && $this->input('password') !== $this->input('confirm-password')) {
+            $formError = 'Passwords do not match.';
         }
 
         $this->render('login', [
-            'pageTitle' => 'Login',
+            'pageTitle' => 'Register',
+            'activeTab' => 'register',
+            'formError' => $formError,
+            'values' => $this->inputs(['login', 'email', 'password', 'confirm-password']),
         ]);
     }
 }
