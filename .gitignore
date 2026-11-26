@@ -5,6 +5,5 @@
 vendor/
 node_modules/
 docker/data/
-composer.lock
 .direnv
 /.php-cs-fixer.cache
